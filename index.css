@@ -57,8 +57,12 @@ body {
     margin: 0px;
     background-color: #f1f1f1;
     padding: 10px 20px;
+    height: 20px;
     width: 250px;
     border-radius: 25px 0px 0px 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #cpy-btn {
