@@ -43,7 +43,7 @@ body {
 
 #main-container {
     color: #111111;
-    margin-left: 10px;
+    margin-inline: 10px;
 }
 
 #password-container {
@@ -175,6 +175,10 @@ body {
     margin-bottom: 20px;
 }
 
+#option-container p {
+    margin-right: 10px;
+}
+
 input[type="checkbox"] {
     margin-left: 10px;
     accent-color: #D90429;
@@ -192,10 +196,14 @@ input[type="checkbox"] + label {
     margin-bottom: 20px;
 }
 
+#range-container p {
+    margin-right: 10px;
+}
+
 input[type="range"] {
-    margin-left: 10px;
     accent-color: #D90429;
     cursor: pointer;
+    width: 300px;
 }
 
 #output {
@@ -268,6 +276,7 @@ input[type="range"] {
     }
 
     #option-container p {
+        margin: 10px;
         grid-area: text;
         align-self: center;
         justify-self: center;
@@ -294,6 +303,7 @@ input[type="range"] {
     }
 
     #range-container p {
+        margin: 10px;
         grid-area: text;
         align-self: center;
         justify-self: center;
@@ -303,5 +313,9 @@ input[type="range"] {
         grid-area: input;
         align-self: center;
         justify-self: center;
+    }
+
+    input[type="range"] {
+        width: 60dvw;
     }
 }
