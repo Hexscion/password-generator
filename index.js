@@ -6,6 +6,10 @@ let characters = [["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 let passText = document.getElementById("password");
 let lengthSlider = document.getElementById("range");
 let lengthText = document.getElementById("range-out");
+let copyrightText = document.getElementById("copyright");
+let statusText = document.getElementById("status");
+let cpyBtn = document.getElementById("cpy-btn");
+copyright();
 updateLength();
 genPassword();
 
@@ -42,8 +46,25 @@ function genPassword() {
 
 function updateLength() {
     lengthText.textContent = lengthSlider.value;
+    genPassword();
 }
 
 function copyPassword() {
+    cpyBtn.disabled = true;
     navigator.clipboard.writeText(passText.textContent);
+    statusText.classList.remove("status-lineDown");
+    statusText.classList.add("status-lineUp");
+    statusText.textContent = "Password copied to clipboard"
+    setTimeout(() => {
+        statusText.classList.remove("status-lineUp");
+        statusText.classList.add("status-lineDown");
+        setTimeout(() => {
+            statusText.textContent = ""
+            cpyBtn.disabled = false
+        }, 900)
+    }, 1500)
+}
+
+function copyright() {
+    copyrightText.textContent = `Copyright © ${new Date().getFullYear()} EXAPASS.`
 }

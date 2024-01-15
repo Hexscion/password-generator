@@ -6,26 +6,23 @@
 body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
-    background-image: url("Abstract_BG.png");
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
+    background-color: #EDF2F4;
 }
 
-#title {
-    margin: 10px;
-    color: #f1f1f1;
-    font-family: Giraffella;
-    font-size: 60px;
-    text-shadow: 0 0 5px #111111;
+#logo {
+    width: 150px;
+    padding: 20px;
+    filter: invert(100%) sepia(0%) saturate(4820%) hue-rotate(305deg) brightness(110%) contrast(92%);
 }
 
 #nav-bar {
     text-align: center;
     overflow: auto;
-    background-color: #7209B7;
+    background-color: #2B2D42;
     box-shadow: 0 0 5px #111111;
 }
 
@@ -46,7 +43,67 @@ body {
 }
 
 #password-container {
-    margin: 50px 0px 20px;
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#status {
+    text-align: center;
+    height: 16px;
+    color: #D90429;
+}
+
+.status-lineUp {
+    animation: 1s anim-lineUp ease-out;
+}
+
+@keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+}
+
+.status-lineDown {
+    animation: 1s anim-lineDown ease-out;
+}
+
+@keyframes anim-lineDown {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+      
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0%);
+      
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(80%);
+    }
+}
+
+#password-space {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -55,7 +112,8 @@ body {
 
 #password {
     margin: 0px;
-    background-color: #f1f1f1;
+    background-color: #2B2D42;
+    color: whitesmoke;
     padding: 10px 20px;
     height: 20px;
     width: 250px;
@@ -66,32 +124,42 @@ body {
 }
 
 #cpy-btn {
-    background-color: rgba(67, 97, 238, 1);
+    background-color: #D90429;
     border: none;
     padding: 12px 15px 12px 12px;
     border-radius: 0px 25px 25px 0px;
     transition: background-color 150ms;
+    cursor: pointer;
 }
 
 #cpy-btn:hover {
-    background-color: rgba(67, 97, 238, 0.8);
+    background-color: #EF233C;
+}
+
+#cpy-btn:disabled {
+    background-color: gray;
 }
 
 #gen-btn {
-    background-color: rgba(67, 97, 238, 1);
+    background-color: #D90429;
     border: none;
     padding: 10px 20px;
     border-radius: 25px;
-    transition: background-color 150ms;
+    transition: background-color 150ms, transform 150ms;
     font-family: 'Raleway', sans-serif;
     font-size: medium;
     color: whitesmoke;
-    text-shadow: 0 0 3px #111111;
-    margin-left: 10px;
+    cursor: pointer;
 }
 
 #gen-btn:hover {
-    background-color: rgba(67, 97, 238, 0.8);
+    background-color: #EF233C;
+    transform: scale(1.1);
+}
+
+#gen-btn:active {
+    background-color: #EF233C;
+    transform: scale(0.9);
 }
 
 #option-container {
@@ -99,15 +167,16 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 input[type="checkbox"] {
     margin-left: 10px;
-    accent-color: rgba(67, 97, 238, 1);
+    accent-color: #D90429;
 }
 
 input[type="checkbox"] + label {
-    text-shadow: 0 0 1px grey;
+    cursor: pointer;
 }
 
 #range-container {
@@ -115,11 +184,13 @@ input[type="checkbox"] + label {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 input[type="range"] {
     margin-left: 10px;
-    accent-color: rgba(67, 97, 238, 1);
+    accent-color: #D90429;
+    cursor: pointer;
 }
 
 #output {
@@ -128,17 +199,21 @@ input[type="range"] {
     width: 30px;
 }
 
+.range-slider {
+    display: flex;
+    gap: 5px;
+}
+
 #range-out {
     position: absolute;
     margin-left: 10px;
     height: 30px;
     width: 30px;
-    background-color: rgba(67, 97, 238, 1);
+    background-color: #D90429;
     border-radius: 50%;
     text-align: center;
     line-height: 27px;
     color: whitesmoke;
-    text-shadow: 0 0 3px #111111;
 }
 
 #range-out:after {
@@ -146,7 +221,7 @@ input[type="range"] {
     position: absolute;
     height: 0;
     width: 0;
-    border-right: 10px solid rgba(67, 97, 238, 1);
+    border-right: 10px solid #D90429;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     top: 35%;
@@ -154,35 +229,74 @@ input[type="range"] {
 }
 
 .footer {
-    margin: 50px 0 0 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgba(58, 12, 163, 1);
+    background-color: #2B2D42;
+    color: whitesmoke;
+    margin-top: auto;
+    padding: 20px;
 }
 
-.footer-title {
-    font-size: 40px;
-    width: 90%;
-    font-weight: bold;
-    color: #f1f1f1;
-    padding: 0px 20px 0px 20px;
-} 
+@media (max-width: 800px) {
+    #main-quote {
+        font-size: 32px;
+    }
 
-.footer-text {
-    font-size: 20px;
-    width: 90%;
-    font-weight: bold;
-    color: #f1f1f1;
-    padding: 20px;
-    margin-right: 0;
-}
+    #sub-quote {
+        font-size: 20px;
+    }
 
-.foot-img {
-    height: 350px;
-    width: 350px;
-    object-fit: cover;
-    padding: 20px;
-    border-radius: 50%;
+    #password-container {
+        flex-direction: column;
+    }
+
+    #option-container {
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+        grid-template-areas: 
+        "text text"
+        "input input"
+        "input input";
+        grid-gap: 10px;
+    }
+
+    #option-container p {
+        grid-area: text;
+        align-self: center;
+        justify-self: center;
+    }
+
+    #option-container div {
+        align-self: center;
+        justify-self: center;
+    }
+
+    #option-container input {
+        margin: 0;
+        height: 20px;
+        width: 20px;
+    }
+
+    #range-container {
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        grid-template-areas: 
+        "text text"
+        "input input";
+        grid-gap: 10px;
+    }
+
+    #range-container p {
+        grid-area: text;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .range-slider {
+        grid-area: input;
+        align-self: center;
+        justify-self: center;
+    }
 }

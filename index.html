@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/6fc856ce18.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="index.css">
-        <title>Password Generator</title>
+        <title>EXAPASS</title>
     </head>
     <body>
-        <div id="nav-bar"><p id="title">PassGenius</p></div>
+        <div id="nav-bar">
+            <img id="logo" src="logo.svg" alt="logo">
+        </div>
         <div id="main-container">
             <p id="main-quote">Random password generator<p>
             <p id="sub-quote">Beyond patterns, beyond predictability, lie our passwords.<p>
+            <div id="status"></div>
             <div id="password-container">
-                <p id="password">Password</p>
-                <button id="cpy-btn" title="Copy password" onclick="copyPassword()">
-                    <i class="fa-regular fa-copy fa-lg" style="color: whitesmoke; text-shadow: 0 0 3px #111111;"></i>
-                </button>
+                <div id="password-space">
+                    <p id="password">Password</p>
+                    <button id="cpy-btn" title="Copy password" onclick="copyPassword()">
+                        <i class="fa-regular fa-copy fa-lg" style="color: whitesmoke;"></i>
+                    </button>
+                </div>
                 <button id="gen-btn" title="Generate password" onclick="genPassword()">Generate</button>
             </div>
             <div id="option-container">
-                <p style="text-shadow: 0 0 1px grey;">Select Characters:</p>
-                <input type="checkbox" id="capital" name="capital" title="capital" checked>
-                <label for="capital">ABC</label>
-                <input type="checkbox" id="small" name="small" title="small" checked>
-                <label for="small">abc</label>
-                <input type="checkbox" id="number" name="number" title="number" checked>
-                <label for="number">123</label>
-                <input type="checkbox" id="symbol" name="symbol" title="symbol" checked>
-                <label for="symbol">!@#</label>
+                <p>Select Characters:</p>
+                <div>    
+                    <input type="checkbox" id="capital" name="capital" title="capital" onclick="genPassword()" checked>
+                    <label for="capital">ABC</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="small" name="small" title="small" onclick="genPassword()" checked>
+                    <label for="small">abc</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="number" name="number" title="number" onclick="genPassword()" checked>
+                    <label for="number">123</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="symbol" name="symbol" title="symbol" onclick="genPassword()" checked>
+                    <label for="symbol">!@#</label>
+                </div>
             </div> 
             <div id="range-container">
-                <p style="text-shadow: 0 0 1px grey;">Select Length:</p>
-                <input type="range" id="range" name="range" title="range" min="5" max="25" oninput="updateLength()">
-                <div id="output">
-                    <output for="range" id="range-out">0</output>
+                <p>Select Length:</p>
+                <div class="range-slider">
+                    <input type="range" id="range" name="range" title="range" min="5" max="25" oninput="updateLength()">
+                    <div id="output">
+                        <output for="range" id="range-out">0</output>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer">
-            <div style="width: 60%;">
-                <p class="footer-title">The Vital Significance of Secure Passwords</p>
-                <p class="footer-text">In a world where our lives are intricately woven into the digital fabric, the importance of secure passwords cannot be underestimated. "Locking Up Safety" sheds light on how robust passwords stand as the guardians of your online identity. This concise guide emphasizes that strong, unique passwords serve as a formidable barrier against cyber threats, preventing unauthorized access and ensuring your private information remains just that – private. Discover why investing a little extra effort into creating and maintaining secure passwords can mean all the difference in safeguarding your virtual world.</p>
-            </div>
-            <img class="foot-img" title="foot-img" src="hack.jpg">
-        </div>
-        <div class="footer" style="margin-top: 0; background-color: #F72585;">
-            <img class="foot-img" title="foot-img" src="hack2.jpg">
-            <div style="width: 60%; text-align: right; margin-left: 50px;">
-                <p class="footer-title">Safeguarding Your Digital Life with Strong Passwords</p>
-                <p class="footer-text"> In an era where our personal and professional landscapes are governed by technology, the significance of secure passwords cannot be overlooked. "Cyber Armor" illuminates the critical role that strong passwords play in fortifying your digital existence. This succinct overview highlights that a well-constructed password acts as a potent shield, thwarting cybercriminals and preserving your confidential data. Explore how a small effort in creating complex and unique passwords can yield monumental protection for your online world, ensuring your peace of mind in an increasingly interconnected digital realm.</p>
-            </div>
+            <p id="copyright"></p>
         </div>
         <script src="index.js"></script>
     </body>
