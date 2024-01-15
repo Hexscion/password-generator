@@ -3,6 +3,10 @@
     src: url("Giraffella.otf");
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
@@ -115,7 +119,7 @@ body {
     background-color: #2B2D42;
     color: whitesmoke;
     padding: 10px 20px;
-    height: 20px;
+    height: 40px;
     width: 250px;
     border-radius: 25px 0px 0px 25px;
     overflow: hidden;
@@ -124,6 +128,7 @@ body {
 }
 
 #cpy-btn {
+    height: 40px;
     background-color: #D90429;
     border: none;
     padding: 12px 15px 12px 12px;
